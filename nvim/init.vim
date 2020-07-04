@@ -15,25 +15,35 @@ else
     filetype plugin indent on
 
     
-    " plugins
     call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'https://github.com/joshdick/onedark.vim.git'
-    Plug 'https://github.com/vim-airline/vim-airline'
-    Plug 'https://github.com/vim-airline/vim-airline-themes'
-    Plug 'https://github.com/WolfgangMehner/bash-support'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+    " Plugins theme related"
+    Plug 'joshdick/onedark.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+
+    " Plugins writing code related
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
-    Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
     Plug 'terryma/vim-multiple-cursors'
 
-    Plug 'elixir-editors/vim-elixir'
+    " Plugins nerdtree related
     Plug 'scrooloose/nerdtree'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'ryanoasis/vim-devicons'
+
+    " Plugins for special usecase
     Plug 'mattn/emmet-vim'
+    Plug 'elixir-editors/vim-elixir'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+    " Plugins for fun
+    Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
     call plug#end()
 
     let mapleader =" "
@@ -95,8 +105,8 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
 
 " Resizing splits
-nnoremap <silent> <C-Left> :vertical resize +3<CR>
-nnoremap <silent> <C-Right> :vertical resize -3<CR>
-nnoremap <silent> <C-Up> :resize +3<CR>
-nnoremap <silent> <C-Down> :resize -3<CR>
+nnoremap <silent> <C-Right> :vertical resize +3<CR>
+nnoremap <silent> <C-Left> :vertical resize -3<CR>
+nnoremap <silent> <C-Down> :resize +3<CR>
+nnoremap <silent> <C-Up> :resize -3<CR>
 
