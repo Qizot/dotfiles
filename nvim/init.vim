@@ -1,12 +1,19 @@
-
 if exists('g:vscode')
     xmap gc  <Plug>VSCodeCommentary
     nmap gc  <Plug>VSCodeCommentary
     omap gc  <Plug>VSCodeCommentary
     nmap gcc <Plug>VSCodeCommentaryLine
+    call plug#begin('~/.local/share/nvim/plugged')
+    " seems not to be working
+    " Plug 'terryma/vim-multiple-cursors'
+    Plug 'mattn/emmet-vim'
+    call plug#end()
 else
     set relativenumber
     set nu rnu
+    filetype on
+    filetype plugin indent on
+
     
     " plugins
     call plug#begin('~/.local/share/nvim/plugged')
@@ -22,12 +29,16 @@ else
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
     Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+    Plug 'terryma/vim-multiple-cursors'
 
     Plug 'elixir-editors/vim-elixir'
     Plug 'scrooloose/nerdtree'
+    Plug 'mattn/emmet-vim'
     call plug#end()
 
     let mapleader =" "
+
+    command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 
     "Nerd tree binding
@@ -39,7 +50,11 @@ else
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gi <Plug>(coc-implementation)
     nmap <silent> gr <Plug>(coc-references)
-
+    nmap <leader>rf <Plug>(coc-refactor)
+    nmap <leader>rn <Plug>(coc-rename)
+    xmap <leader>F  <Plug>(coc-format-selected)
+    nmap <leader>F  <Plug>(coc-format)
+    nmap <leader>h :call CocAction("doHover")<CR>
     "vim-fugitive mapings
     nmap <leader>gs :G<CR>
     "accept left merge
@@ -51,9 +66,12 @@ else
     tnoremap <Esc> <C-\><C-n>
 
 
-    "Jump to next/previous tab
+    "Jump to next/previous buffer
     nmap <C+S+L> :bn
     nmap <C+S+H> :bp
+
+    "Search in files
+    nmap <C-g> :Ag<CR>
 
 
     set ft=elixir
