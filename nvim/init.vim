@@ -130,9 +130,6 @@ else
     "Search in files
     nmap <C-g> :Ag<CR>
 
-
-    set ft=elixir
-
     set rtp+=/usr/bin/fzf
     
     colorscheme onedark
